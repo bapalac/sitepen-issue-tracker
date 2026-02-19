@@ -1,6 +1,5 @@
 package com.sitepen.issuetracker.dto;
 
-import com.sitepen.issuetracker.entity.ProjectEntity;
 import com.sitepen.issuetracker.entity.UserEntity;
 import com.sitepen.issuetracker.enums.UserRole;
 import lombok.AllArgsConstructor;
