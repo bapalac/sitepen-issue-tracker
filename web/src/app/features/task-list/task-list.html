@@ -1,35 +1,36 @@
 <div class="task-list-container">
 
-  <h2 class="mb-4">My Tasks</h2>
-
   <div class="task-grid">
-    <mat-card *ngFor="let task of taskList()" class="task-card">
+	@for(task of taskList(); track task.id) {
+		<mat-card class="task-card pointer" (click)="navigateToTaskDetails(task.id)">
 
-      <mat-card-title>
-        {{ task.title }}
-      </mat-card-title>
+		<mat-card-title>
+			{{ task.title }}
+		</mat-card-title>
 
-      <mat-card-content>
-        <p>Status: <strong>{{ task.status }}</strong></p>
-        <p>Priority: <strong>{{ task.priority }}</strong></p>
-      </mat-card-content>
+		<mat-card-content>
+			<p>Status: <strong>{{ task.status }}</strong></p>
+			<p>Priority: <strong>{{ task.priority }}</strong></p>
+		</mat-card-content>
 
-      <mat-card-actions>
-        <button
-          mat-raised-button
-          color="primary"
-          *ngIf="task.status !== 'CLOSED'"
-          (click)="markDone(task)"
-        >
-          Mark Done
-        </button>
+		<mat-card-actions>
+			@if(task.status === 'CLOSED') {
+				<mat-icon *ngIf="task.status === 'CLOSED'" color="primary">
+					check_circle
+				</mat-icon>
+			} @else {
+				<button
+					mat-raised-button
+					color="primary"
+					(click)="markDone(task)"
+				>
+					Mark Done
+				</button>
+			}
+		</mat-card-actions>
 
-        <mat-icon *ngIf="task.status === 'CLOSED'" color="primary">
-          check_circle
-        </mat-icon>
-      </mat-card-actions>
-
-    </mat-card>
+		</mat-card>
+	}
   </div>
 
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ApiService } from '../../core/services/api.service';
 import { PlaceholderData } from '../../core/models/models';
 
@@ -10,9 +10,10 @@ import { PlaceholderData } from '../../core/models/models';
   styleUrl: './placeholder.css',
 })
 export class PlaceholderComponent implements OnInit {
+	private apiService = inject(ApiService);
 	placeholderData = signal<PlaceholderData | null>(null);
 
-	constructor(private apiService: ApiService) {}
+	constructor() {}
 
 	ngOnInit(): void {
 		this.apiService.getbyId(1).subscribe({

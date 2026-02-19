@@ -1,0 +1,31 @@
+<div class="project-list-container">
+
+  <h2 class="mb-4">My Projects</h2>
+
+  <div class="project-grid">
+	@for(project of projectList(); track project.id) {
+		<mat-card class="project-card">
+
+		<mat-card-title>
+			{{ project.name }}
+		</mat-card-title>
+
+		<mat-card-content>
+			<p>OwnerId: <strong>{{ project.ownerId }}</strong></p>
+		</mat-card-content>
+
+		<mat-card-actions>
+			<button
+				mat-raised-button
+				color="primary"
+				(click)="navigateToProjectDetails(project.id)"
+			>
+				View Details
+			</button>
+		</mat-card-actions>
+
+		</mat-card>
+	}
+  </div>
+
+</div>

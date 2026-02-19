@@ -12,3 +12,7 @@
 .task-card {
   padding: 12px;
 }
+
+.pointer {
+	cursor: pointer;
+}

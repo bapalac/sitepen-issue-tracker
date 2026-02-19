@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,8 +20,9 @@ import { Router } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('assessment');
+  private router = inject(Router);
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   navigateToHome() {
 	this.router.navigate(["/"]);

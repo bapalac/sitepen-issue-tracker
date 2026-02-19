@@ -1,36 +1,42 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { PlaceholderData, Task } from '../models/models';
+import { PlaceholderData, Project, Task } from '../models/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
+	private http = inject(HttpClient);
   private readonly BASE_URL = `${environment.apiUrl}`;
 
   private jsonHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   });
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   getbyId(id: number): Observable<PlaceholderData> {
 	return this.http.get<PlaceholderData>(`${this.BASE_URL}/${id}`);
   }
 
-  getAllTasks(): Observable<Array<Task>> {
-	return this.http.get<Array<Task>>(`${this.BASE_URL}/tasks/get-all`);
+  getAllTasks(): Observable<Task[]> {
+	return this.http.get<Task[]>(`${this.BASE_URL}/tasks/get-all`);
   }
 
-  // -----------------------------
-  // Generic GET
-  // -----------------------------
-  get<T>(endpoint: string): Observable<T> {
-    return this.http.get<T>(`${this.BASE_URL}/${endpoint}`);
+  getTaskById(taskId: number): Observable<Task> {
+	return this.http.get<Task>(`${this.BASE_URL}/tasks/${taskId}`);
   }
+
+  getAllTasksByProjectId(projectId: number): Observable<Task[]> {
+	return this.http.get<Task[]>(`${this.BASE_URL}/tasks/get-all-by-project/${projectId}`);
+  }
+
+  getAllProjects(): Observable<Project[]> {
+	return this.http.get<Project[]>(`${this.BASE_URL}/projects/get-all`);
+  }
+
 
   // -----------------------------
   // Generic POST
@@ -46,15 +52,6 @@ export class ApiService {
   // -----------------------------
   put<T>(endpoint: string, body: any): Observable<T> {
     return this.http.put<T>(`${this.BASE_URL}/${endpoint}`, body, {
-      headers: this.jsonHeaders
-    });
-  }
-
-  // -----------------------------
-  // Generic PATCH
-  // -----------------------------
-  patch<T>(endpoint: string, body: any): Observable<T> {
-    return this.http.patch<T>(`${this.BASE_URL}/${endpoint}`, body, {
       headers: this.jsonHeaders
     });
   }
