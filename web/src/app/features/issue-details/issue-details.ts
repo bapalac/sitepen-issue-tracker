@@ -3,38 +3,37 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ApiService } from '../../core/services/api.service';
-import { Task } from '../../core/models/models';
+import { Issue } from '../../core/models/models';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-task-details',
+  selector: 'app-issue-details',
   imports: [
 	MatCardModule,
 	MatIconModule,
 	MatButtonModule
   ],
-  templateUrl: './task-details.html',
-  styleUrl: './task-details.css',
+  templateUrl: './issue-details.html',
+  styleUrl: './issue-details.css',
 })
-export class TaskDetailsComponent implements OnInit {
+export class IssueDetailsComponent implements OnInit {
 	private apiService = inject(ApiService);
 	private router = inject(Router);
 
- 	@Input() taskId!: number;
+ 	@Input() issueId!: number;
 
-	taskData = signal<Task | null>(null);
+	issueData = signal<Issue | null>(null);
 
 	constructor() {}
 
 	ngOnInit(): void {
-		console.log('here');
-		this.apiService.getTaskById(this.taskId).subscribe({
-			next: data => { this.taskData.set(data); console.log(this.taskData) },
+		this.apiService.getIssueById(this.issueId).subscribe({
+			next: data => { this.issueData.set(data) },
 			error: () => {}
 		});
 	}
 
 	goBack() {
-		this.router.navigate(["/project", this.taskData()?.projectId]);
+		this.router.navigate(["/project", this.issueData()?.projectId]);
 	}
 }

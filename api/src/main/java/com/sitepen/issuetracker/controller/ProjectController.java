@@ -1,9 +1,7 @@
 package com.sitepen.issuetracker.controller;
 
 import com.sitepen.issuetracker.dto.ProjectDto;
-import com.sitepen.issuetracker.dto.TaskDto;
 import com.sitepen.issuetracker.service.ProjectsI;
-import com.sitepen.issuetracker.service.TasksI;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +19,6 @@ public class ProjectController {
 
     @GetMapping("/get-all")
     public List<ProjectDto> getAll() {
-        System.out.println("get all");
-
         return projectsI.getAll();
     }
 

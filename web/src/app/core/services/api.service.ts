@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { PlaceholderData, Project, Task } from '../models/models';
+import { Project, Issue } from '../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -17,20 +17,16 @@ export class ApiService {
 
   constructor() {}
 
-  getbyId(id: number): Observable<PlaceholderData> {
-	return this.http.get<PlaceholderData>(`${this.BASE_URL}/${id}`);
+  getAllIssues(): Observable<Issue[]> {
+	return this.http.get<Issue[]>(`${this.BASE_URL}/issues/get-all`);
   }
 
-  getAllTasks(): Observable<Task[]> {
-	return this.http.get<Task[]>(`${this.BASE_URL}/tasks/get-all`);
+  getIssueById(issueId: number): Observable<Issue> {
+	return this.http.get<Issue>(`${this.BASE_URL}/issues/${issueId}`);
   }
 
-  getTaskById(taskId: number): Observable<Task> {
-	return this.http.get<Task>(`${this.BASE_URL}/tasks/${taskId}`);
-  }
-
-  getAllTasksByProjectId(projectId: number): Observable<Task[]> {
-	return this.http.get<Task[]>(`${this.BASE_URL}/tasks/get-all-by-project/${projectId}`);
+  getAllIssuesByProjectId(projectId: number): Observable<Issue[]> {
+	return this.http.get<Issue[]>(`${this.BASE_URL}/issues/get-all-by-project/${projectId}`);
   }
 
   getAllProjects(): Observable<Project[]> {

@@ -1,7 +1,5 @@
 package com.sitepen.issuetracker.entity;
 
-import com.sitepen.issuetracker.enums.TaskPriority;
-import com.sitepen.issuetracker.enums.TaskStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

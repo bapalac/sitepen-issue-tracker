@@ -6,10 +6,6 @@ export const routes: Routes = [
 		path: '',
 		loadComponent: () => import('./landing/landing').then(m => m.LandingComponent)
 	},
-	{ 
-		path: 'placeholder', 
-		loadComponent: () => import('./features/placeholder/placeholder').then(m => m.PlaceholderComponent)
-	},
 	{
 		path: 'projects',
 		loadComponent: () => import('./features/project-list/project-list').then(m => m.ProjectListComponent)
@@ -19,12 +15,12 @@ export const routes: Routes = [
 		loadComponent: () => import('./features/project-details/project-details').then(m => m.ProjectDetailsComponent)
 	},
 	{
-		path: 'tasks',
-		loadComponent: () => import('./features/task-list/task-list').then(m => m.TaskListComponent)
+		path: 'issues',
+		loadComponent: () => import('./features/issue-list/issue-list').then(m => m.IssueListComponent)
 	},
 	{
-		path: 'task/:taskId',
-		loadComponent: () => import('./features/task-details/task-details').then(m => m.TaskDetailsComponent)
+		path: 'issue/:issueId',
+		loadComponent: () => import('./features/issue-details/issue-details').then(m => m.IssueDetailsComponent)
 	},
 	{ 
 		path: '**', 

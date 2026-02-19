@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Task } from '../../core/models/models';
+import { Issue } from '../../core/models/models';
 import { ApiService } from '../../core/services/api.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-task-list',
+  selector: 'app-issue-list',
   standalone: true,
   imports: [
     CommonModule,
@@ -16,30 +16,29 @@ import { Router } from '@angular/router';
     MatIconModule,
     MatButtonModule
   ],
-  templateUrl: './task-list.html',
-  styleUrls: ['./task-list.css']
+  templateUrl: './issue-list.html',
+  styleUrls: ['./issue-list.css']
 })
-export class TaskListComponent implements OnInit {
+export class IssueListComponent implements OnInit {
 	private apiService = inject(ApiService);
 	private router = inject(Router);
 
-	taskList = signal<Task[] | []>([]);
+	issueList = signal<Issue[] | []>([]);
 
 	constructor() {}
 
 	ngOnInit(): void {
-		console.log('hitting');
-		this.apiService.getAllTasks().subscribe({
-			next: data => { this.taskList.set(data) },
+		this.apiService.getAllIssues().subscribe({
+			next: data => { this.issueList.set(data) },
 			error: () => {}
 		});
 	}
 
-  markDone(task: Task) {
-    task.status = 'CLOSED';
+  markDone(issue: Issue) {
+    issue.status = 'CLOSED';
   }
 
-  navigateToTaskDetails(taskId: number) {
-	this.router.navigate(["/task", taskId]);
+  navigateToIssueDetails(issueId: number) {
+	this.router.navigate(["/issue", issueId]);
   }
 }

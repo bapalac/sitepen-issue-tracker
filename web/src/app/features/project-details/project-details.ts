@@ -1,12 +1,12 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, Input, OnInit, signal } from '@angular/core';
 import { ApiService } from '../../core/services/api.service';
-import { Task } from '../../core/models/models';
+import { Issue } from '../../core/models/models';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
-import { TaskListComponent } from '../task-list/task-list';
+import { IssueListComponent } from '../issue-list/issue-list';
 
 @Component({
   selector: 'app-project-details',
@@ -15,7 +15,7 @@ import { TaskListComponent } from '../task-list/task-list';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-	TaskListComponent
+	IssueListComponent
   ],
   schemas: [
 	CUSTOM_ELEMENTS_SCHEMA
@@ -29,19 +29,18 @@ export class ProjectDetailsComponent implements OnInit{
 
  	@Input() projectId!: number;
 
-	taskList = signal<Task[] | null>(null);
+	issueList = signal<Issue[] | null>(null);
 
 	constructor() {}
 
 	ngOnInit(): void {
-		console.log(this.projectId);
-		this.apiService.getAllTasksByProjectId(this.projectId).subscribe({
-			next: data => { this.taskList.set(data) },
+		this.apiService.getAllIssuesByProjectId(this.projectId).subscribe({
+			next: data => { this.issueList.set(data) },
 			error: () => {}
 		});
 	}
 
-	navigateToTaskDetails(taskId: number) {
-		this.router.navigate(["/task", taskId]);
+	navigateToIssueDetails(issueId: number) {
+		this.router.navigate(["/issue", issueId]);
 	}
 }

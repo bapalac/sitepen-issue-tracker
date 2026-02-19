@@ -29,7 +29,8 @@
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+			"polyfills": ["src/polyfills.ts"]
           },
           "configurations": {
             "production": {
@@ -74,6 +75,7 @@
           "builder": "@angular/build:karma",
           "options": {
             "tsConfig": "tsconfig.spec.json",
+			"polyfills": ["src/polyfills.ts"],
             "assets": [
               {
                 "glob": "**/*",

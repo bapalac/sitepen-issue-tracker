@@ -1,15 +1,15 @@
-.task-list-container {
+.issue-list-container {
   max-width: 900px;
   margin: 0 auto;
 }
 
-.task-grid {
+.issue-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
 }
 
-.task-card {
+.issue-card {
   padding: 12px;
 }
 

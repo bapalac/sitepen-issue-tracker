@@ -1,18 +1,18 @@
 package com.sitepen.issuetracker.entity;
 
-import com.sitepen.issuetracker.enums.TaskPriority;
-import com.sitepen.issuetracker.enums.TaskStatus;
+import com.sitepen.issuetracker.enums.IssuePriority;
+import com.sitepen.issuetracker.enums.IssueStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="TaskEntity")
+@Table(name="IssueEntity")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TaskEntity {
+public class IssueEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,10 +24,10 @@ public class TaskEntity {
     private String description;
 
     @Enumerated(EnumType.STRING)
-    private TaskStatus status;
+    private IssueStatus status;
 
     @Enumerated(EnumType.STRING)
-    private TaskPriority priority;
+    private IssuePriority priority;
 
     @Column
     private Long assigneeId;

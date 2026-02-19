@@ -1,7 +1,6 @@
 package com.sitepen.issuetracker.service;
 
 import com.sitepen.issuetracker.dto.ProjectDto;
-import com.sitepen.issuetracker.dto.TaskDto;
 
 import java.util.List;
 

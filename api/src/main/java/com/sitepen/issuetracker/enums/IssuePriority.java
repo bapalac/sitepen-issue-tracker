@@ -1,6 +1,6 @@
 package com.sitepen.issuetracker.enums;
 
-public enum TaskPriority {
+public enum IssuePriority {
     LOW,
     MEDIUM,
     HIGH

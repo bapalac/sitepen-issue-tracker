@@ -1,6 +1,6 @@
 package com.sitepen.issuetracker.enums;
 
-public enum TaskStatus {
+public enum IssueStatus {
     OPEN,
     IN_PROGRESS,
     CLOSED

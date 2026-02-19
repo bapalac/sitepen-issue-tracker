@@ -1,11 +1,8 @@
 package com.sitepen.issuetracker.service.implementation;
 
 import com.sitepen.issuetracker.dto.ProjectDto;
-import com.sitepen.issuetracker.dto.TaskDto;
 import com.sitepen.issuetracker.entity.ProjectEntity;
-import com.sitepen.issuetracker.entity.TaskEntity;
 import com.sitepen.issuetracker.repository.ProjectsRepository;
-import com.sitepen.issuetracker.repository.TasksRepository;
 import com.sitepen.issuetracker.service.ProjectsI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

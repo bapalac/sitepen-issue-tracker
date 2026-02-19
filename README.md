@@ -2,7 +2,7 @@
 
 ## Backend (Spring Boot)
 - Java 17 + Spring Boot 3.2
-- REST API for managing tasks
+- REST API for managing issues
 - H2 in‑memory database for development
 - Spring Data JPA for persistence
 - DTO and mapping layer
@@ -16,7 +16,7 @@
 ## Frontend (Angular 17)
 - Standalone component architecture
 - Angular Material UI
-- Task list display with Material cards
+- Issue list display with Material cards
 - Landing page with navigation
 - Router‑based navigation
 - Signals for state management
@@ -31,7 +31,7 @@ sitepen-issue-tracker/
 │   │   ├── service/                  # Service interfaces and implementations
 │   │   ├── dto/                      # Data Transfer Objects
 │   │   ├── entity/                   # JPA entities
-│   │   ├── enums/                    # TaskStatus, TaskPriority
+│   │   ├── enums/                    # IssueStatus, IssuePriority
 │   │   ├── repository/               # JPA and CRUD with framework for custom queries
 │   │   └── config/                   # Security and CORS configuration
 │   └── src/test/java/                # JUnit and Mockito tests
@@ -43,11 +43,11 @@ sitepen-issue-tracker/
         │   ├── app.routes.ts
         │   ├── app.component.ts
         │   ├── core/
-		│   │	├──models/   	  	  # Object models for users, projects, and tasks
+		│   │	├──models/   	  	  # Object models for users, projects, and issues
 		│   │	└──services/   		  # API service
         │   └── features/
-		│   	├──task-list/   	  # Task list feature module
-		│   	├──task-details/   	  # Task details feature module
+		│   	├──issue-list/   	  # Issue list feature module
+		│   	├──issue-details/     # Issue details feature module
 		│   	├──project-list/   	  # Project list feature module
 		│   	└──project-details/   # Project details feature module
         └── tests/                    # Jasmine unit tests
@@ -81,7 +81,7 @@ For testing,
 
 After starting the API, navigate to `http://localhost:8080/h2-console`
 
-- JDBC URL: `jdbc:h2:mem:taskmanagerdb`
+- JDBC URL: `jdbc:h2:mem:testdb`
 - Username: `sa` / Password: *(empty)*
 
 ### Running the Web Client

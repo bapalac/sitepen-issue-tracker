@@ -3,11 +3,12 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { App } from './app';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App, RouterTestingModule],
+      imports: [App, RouterTestingModule, HttpClientTestingModule],
       providers: [provideRouter(routes)]
     }).compileComponents();
   });
@@ -22,17 +23,16 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.title')?.textContent).toContain('Task Hub');
+    expect(compiled.querySelector('.title')?.textContent).toContain('Issue Tracker');
   });
 
-  it('should have routerLink buttons for home, tasks, placeholder', () => {
+  it('should have routerLink buttons for home, issues', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     const buttons = compiled.querySelectorAll('button[mat-icon-button]');
     const links = Array.from(buttons).map(b => b.getAttribute('routerLink'));
     expect(links).toContain('/');
-    expect(links).toContain('/tasks');
-    expect(links).toContain('/placeholder');
+    expect(links).toContain('/issues');
   });
 });

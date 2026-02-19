@@ -1,8 +1,3 @@
-export interface PlaceholderData {
-	placeholderId: number;
-	placeholderString: string;
-}
-
 export interface User {
 	id: number;
 	firstName: string;
@@ -11,7 +6,7 @@ export interface User {
 	email: string;
 }
 
-export interface Task {
+export interface Issue {
 	id: number;
 	title: string;
 	description: string;

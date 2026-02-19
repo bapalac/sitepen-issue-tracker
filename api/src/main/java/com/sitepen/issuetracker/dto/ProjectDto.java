@@ -1,9 +1,6 @@
 package com.sitepen.issuetracker.dto;
 
 import com.sitepen.issuetracker.entity.ProjectEntity;
-import com.sitepen.issuetracker.entity.TaskEntity;
-import com.sitepen.issuetracker.enums.TaskPriority;
-import com.sitepen.issuetracker.enums.TaskStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

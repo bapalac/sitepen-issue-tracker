@@ -1,11 +1,11 @@
-<div class="task-detail-container">
+<div class="issue-detail-container">
 
-  <mat-card class="task-card mat-elevation-z4">
+  <mat-card class="issue-card mat-elevation-z4">
 
     <mat-card-header>
-      <mat-card-title>{{ taskData()?.title }}</mat-card-title>
+      <mat-card-title>{{ issueData()?.title }}</mat-card-title>
       <mat-card-subtitle>
-        Task #{{ taskData()?.id }}
+        Issue #{{ issueData()?.id }}
       </mat-card-subtitle>
     </mat-card-header>
 
@@ -13,34 +13,34 @@
 
       <div class="detail-row">
         <span class="label">Description:</span>
-        <span class="value">{{ taskData()?.description }}</span>
+        <span class="value">{{ issueData()?.description }}</span>
       </div>
 
       <div class="detail-row">
         <span class="label">Status:</span>
-        <span class="value">{{ taskData()?.status }}</span>
+        <span class="value">{{ issueData()?.status }}</span>
       </div>
 
       <div class="detail-row">
         <span class="label">Priority:</span>
-        <span class="value">{{ taskData()?.priority }}</span>
+        <span class="value">{{ issueData()?.priority }}</span>
       </div>
 
       <div class="detail-row">
         <span class="label">Assignee:</span>
-        <span class="value">{{ taskData()?.assigneeId ?? 'Unassigned' }}</span>
+        <span class="value">{{ issueData()?.assigneeId ?? 'Unassigned' }}</span>
       </div>
 
       <div class="detail-row">
         <span class="label">Project:</span>
-        <span class="value">{{ taskData()?.projectId }}</span>
+        <span class="value">{{ issueData()?.projectId }}</span>
       </div>
 
     </mat-card-content>
 
     <mat-card-actions>
       <button mat-raised-button color="primary" (click)="goBack()">
-        Back to Tasks
+        Back to Issues
       </button>
     </mat-card-actions>
 

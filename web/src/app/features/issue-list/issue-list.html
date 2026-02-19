@@ -1,0 +1,36 @@
+<div class="issue-list-container">
+
+  <div class="issue-grid">
+	@for(issue of issueList(); track issue.id) {
+		<mat-card class="issue-card pointer" (click)="navigateToIssueDetails(issue.id)">
+
+		<mat-card-title>
+			{{ issue.title }}
+		</mat-card-title>
+
+		<mat-card-content>
+			<p>Status: <strong>{{ issue.status }}</strong></p>
+			<p>Priority: <strong>{{ issue.priority }}</strong></p>
+		</mat-card-content>
+
+		<mat-card-actions>
+			@if(issue.status === 'CLOSED') {
+				<mat-icon *ngIf="issue.status === 'CLOSED'" color="primary">
+					check_circle
+				</mat-icon>
+			} @else {
+				<button
+					mat-raised-button
+					color="primary"
+					(click)="markDone(issue)"
+				>
+					Mark Done
+				</button>
+			}
+		</mat-card-actions>
+
+		</mat-card>
+	}
+  </div>
+
+</div>
