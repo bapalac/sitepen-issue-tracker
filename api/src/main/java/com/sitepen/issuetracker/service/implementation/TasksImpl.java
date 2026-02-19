@@ -27,4 +27,16 @@ public class TasksImpl implements TasksI {
         List<TaskEntity> taskEntityList = tasksRepository.getAll();
         return taskEntityList.stream().map(TaskDto::fromEntity).collect(Collectors.toList());
     }
+
+    @Override
+    public TaskDto getByTaskId(Long taskId) {
+        TaskEntity taskEntity = tasksRepository.getReferenceById(taskId);
+        return TaskDto.fromEntity(taskEntity);
+    }
+
+    @Override
+    public List<TaskDto> getAllByProjectId(Long projectId) {
+        List<TaskEntity> taskEntityList = tasksRepository.getAllByProjectId(projectId);
+        return taskEntityList.stream().map(TaskDto::fromEntity).collect(Collectors.toList());
+    }
 }

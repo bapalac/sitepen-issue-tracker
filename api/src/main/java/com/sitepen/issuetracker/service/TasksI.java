@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface TasksI {
     public List<TaskDto> getAll();
+
+    public TaskDto getByTaskId(Long taskId);
+
+    public List<TaskDto> getAllByProjectId(Long projectId);
 }

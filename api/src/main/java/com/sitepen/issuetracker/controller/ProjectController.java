@@ -21,6 +21,9 @@ public class ProjectController {
 
     @GetMapping("/get-all")
     public List<ProjectDto> getAll() {
+        System.out.println("get all");
+
         return projectsI.getAll();
     }
+
 }

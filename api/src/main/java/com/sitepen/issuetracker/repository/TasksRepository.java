@@ -12,4 +12,8 @@ import java.util.List;
 @Repository
 public interface TasksRepository extends JpaRepository<TaskEntity, Long>, TasksRepositoryCustom {
     List<TaskEntity> getAll();
+
+//    TaskEntity getById();
+
+    List<TaskEntity> getAllByProjectId(Long projectId);
 }
