@@ -1,0 +1,21 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.content {
+  padding: 24px;
+}
+
+.pointer {
+	cursor: pointer;
+}

@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="title pointer" (click)="navigateToHome()">Task Hub</span>
+
+  <span class="spacer"></span>
+
+  <button mat-icon-button routerLink="/">
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <button mat-icon-button routerLink="/tasks">
+    <mat-icon>checklist</mat-icon>
+  </button>
+
+  <button mat-icon-button routerLink="/placeholder">
+    <mat-icon>more_horiz</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

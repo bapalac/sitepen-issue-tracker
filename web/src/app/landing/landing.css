@@ -1,0 +1,11 @@
+mat-card {
+  border-radius: 12px;
+}
+
+.display-4 {
+  font-weight: 600;
+}
+
+.lead {
+  color: #555;
+}
