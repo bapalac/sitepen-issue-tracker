@@ -1,0 +1,120 @@
+############################
+# Java / Spring Boot
+############################
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle
+*/.gradle/
+*/gradle/
+*/gradlew/
+*/.gitattributes
+*/build/
+!gradle/wrapper/gradle-wrapper.jar
+gradle-app.setting
+
+# Logs
+*.log
+logs/
+*.out
+
+# JVM crash logs
+hs_err_pid*
+replay_pid*
+
+# Spring Boot dev tools
+.spring-boot-devtools.properties
+
+############################
+# IntelliJ IDEA
+############################
+*/.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IntelliJ local history
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf/
+
+############################
+# VS Code
+############################
+*/.vscode/
+.history/
+*.code-workspace
+
+############################
+# Node / Angular
+############################
+
+# Dependencies
+*/node_modules/
+
+# Angular build output
+dist/
+dist-ssr/
+out-tsc/
+
+# Angular cache
+.angular/
+.angular/cache/
+
+# Environment files (optional)
+# Uncomment if you store secrets locally
+# src/environments/environment*.ts
+
+# NPM logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+############################
+# OS Files
+############################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+############################
+# Misc
+############################
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+
+# JetBrains Fleet
+.fleet/
+
+# Misc
+*/gradlew
+*/gradlew.bat
+*/.editorconfig
